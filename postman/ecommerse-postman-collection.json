@@ -1,0 +1,205 @@
+{
+  "info": {
+    "name": "Ecommerse API",
+    "_postman_id": "7f6995d9-f3e9-4bf4-a865-1ba128b87966",
+    "description": "Postman collection for the sample Spring Boot e-commerce API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Public Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/public/health"
+      }
+    },
+    {
+      "name": "List Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/products"
+      }
+    },
+    {
+      "name": "Auth Me",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "tester",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "test123",
+              "type": "string"
+            }
+          ]
+        },
+        "header": [],
+        "url": "{{baseUrl}}/api/auth/me"
+      }
+    },
+    {
+      "name": "Debug Headers",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "tester",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "test123",
+              "type": "string"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "X-Trace-Id",
+            "value": "postman-trace-001"
+          },
+          {
+            "key": "X-Test-Mode",
+            "value": "manual"
+          },
+          {
+            "key": "X-Correlation-Id",
+            "value": "corr-001"
+          }
+        ],
+        "url": "{{baseUrl}}/api/debug/headers"
+      }
+    },
+    {
+      "name": "Create Order",
+      "request": {
+        "method": "POST",
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "tester",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "test123",
+              "type": "string"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Trace-Id",
+            "value": "order-trace-101"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerEmail\": \"buyer@example.com\",\n  \"items\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 3,\n      \"quantity\": 1\n    }\n  ]\n}"
+        },
+        "url": "{{baseUrl}}/api/orders"
+      }
+    },
+    {
+      "name": "My Orders",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "tester",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "test123",
+              "type": "string"
+            }
+          ]
+        },
+        "header": [],
+        "url": "{{baseUrl}}/api/orders/my"
+      }
+    },
+    {
+      "name": "Admin Create Product",
+      "request": {
+        "method": "POST",
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "admin123",
+              "type": "string"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Webcam\",\n  \"description\": \"Full HD webcam\",\n  \"category\": \"Accessories\",\n  \"price\": 59.99,\n  \"stock\": 14\n}"
+        },
+        "url": "{{baseUrl}}/api/products"
+      }
+    },
+    {
+      "name": "Admin List Orders",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "admin123",
+              "type": "string"
+            }
+          ]
+        },
+        "header": [],
+        "url": "{{baseUrl}}/api/orders"
+      }
+    }
+  ]
+}
